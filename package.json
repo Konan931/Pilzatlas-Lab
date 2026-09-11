@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "check": "node scripts/check.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "@deck.gl/core": "9.4.0",
