@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import { existsSync, readFileSync } from 'node:fs';
+for (const file of ['app/page.tsx','components/AtlasClient.tsx','lib/atlas.ts','app/api/weather/route.ts','app/api/spatial/sample/route.ts','app/api/gbif/observations/route.ts','app/api/conservation/screen/route.ts','docs/data-engine.md']) assert.ok(existsSync(file), `missing ${file}`);
+const atlas = readFileSync('lib/atlas.ts','utf8');
+for (const taxon of ['Craterellus cornucopioides','Macrolepiota procera','Sparassis crispa','Calvatia gigantea']) assert.ok(atlas.includes(taxon));
+assert.ok(atlas.includes("'PHOTO_ONLY'"));
+assert.ok(!existsSync('pyproject.toml'));
+assert.ok(!existsSync('bin/compact'));
+assert.ok(!readFileSync('README.md','utf8').startsWith('# compact-dev'));
+console.log('Pilzatlas repository invariants: OK');

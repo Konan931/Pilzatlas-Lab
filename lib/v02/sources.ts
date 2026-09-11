@@ -1,0 +1,2 @@
+export const ENDPOINTS={bbkWfs:'https://inspire.brandenburg.de/services/bbk_wfs',soilWfs:'https://inspire.brandenburg.de/services/boartsubstr_wfs',protectionWfs:'https://inspire.brandenburg.de/services/schutzg_wfs',gbif:'https://api.gbif.org/v1/occurrence/search',dwdBeech:'https://opendata.dwd.de/climate_environment/CDC/grids_germany/daily/soil_moisture/beech/2026/',vbbRt:'https://production.gtfsrt.vbb.de/data'} as const;
+export const PROTECTION_TYPES=['app:nsg_mz','app:lsg_mz','app:natp_mz','app:br_mz','app:ffh','app:spa'] as const;

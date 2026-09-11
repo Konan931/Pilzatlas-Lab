@@ -1,131 +1,63 @@
-# compact-dev — a compact developer toolbox and codekit
+# Pilzatlas BB · Agent Toad on Trumpet Town
 
-> Built around the UNIX philosophy: small tools, composability, and clarity.
+**Pilzatlas-Lab** is the canonical source repository for a scientific, interpretable mushroom field atlas and expedition planner for Berlin and Brandenburg.
 
-Maintained and curated within the ecosystem of **Digital Welfare™ Productions**.
+It is built around one rule:
 
-![last update](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/Konan931/compact-dev/main/badge.json)
-
-<a id="toc"></a>
-## Table of contents
-- [Overview](#overview)
-- [Current status](#current-status)
-- [Features](#features)
-- [Profile](#profile)
-- [Structure](#structure)
-- [Labels](#labels)
-- [Quick start](#quick-start)
-- [Stability](#stability)
-- [Architecture](#architecture)
-- [Governance](#governance)
-- [Roadmap](#roadmap)
-
-<a id="overview"></a>
-## Overview
-
-**`compact-dev`** is a **compact developer toolbox** and **polyglot codekit** focused on:
-
-- small, auditable tools
-- repository discipline
-- metadata-driven maintenance
-- language-specific expansion without losing structural clarity
-
-The current core is implemented in **Python**, while additional language targets such as **Go** and **C** are part of the repository design and _will be expanded incrementally_.
-
-<a id="current-status"></a>
-## Current status
-
-The Python core is the current reference implementation.
-
-At this stage, the repository already provides working utilities for:
-
-- repository auditing
-- badge generation
-- initialization-oriented tooling
-
-_The broader repository structure is intentionally prepared for future extension into **additional runtimes** and **lower-level implementations**._
-
-<a id="features"></a>
-## Features
-
-- `compact init` — initialize project scaffolding
-- `compact audit` — validate repository structure and metadata
-- `compact badge` — generate `badge.json` for Shields.io endpoint badges
-
-<a id="profile"></a>
-## Profile
-
-- [profile.json](./profile.json)
-- Raw: https://raw.githubusercontent.com/Konan931/compact-dev/main/profile.json
-
-<a id="structure"></a>
-## Structure
-
-See: [structure.md](./structure.md)
-
-<a id="labels"></a>
-## Labels
-
-Repository labels are documented in more detail here:
-
-- [docs/labels.md](./docs/labels.md)
-
-Current label set:
-
-- `EXPERIMENTAL` — prototype, may break
-- `OWNED` — actively maintained and reviewed
-- `ARCHIVED` — preserved but not actively maintained
-- `NOMISCATALL` — no misc at all
-- `KLANG` — system design workspace
-- `SUSSYS` — suspect system, explicitly marked
-- `ART` — intentionally chaotic or aesthetic material
-
-<a id="quick-start"></a>
-## Quick start
-
-###### Run through the shell wrapper:
-
-```bash
-./bin/compact init
-./bin/compact audit
-./bin/compact badge
+```text
+habitat suitability
+!= fruiting readiness
+!= observation evidence
+!= evidence confidence
+!= trip quality
+!= conservation/legal status
+!= edibility
 ```
 
-###### Run through Python directly:
+The atlas is not a secret-spot pinboard and does not present heuristic scores as finding probabilities.
+
+## v0.2 foundation
+
+- Next.js App Router + strict TypeScript
+- MapLibre GL JS + OpenFreeMap vector basemap
+- deck.gl + H3 analytical mission surfaces
+- ECharts evidence/phenology views
+- official Brandenburg BBK WMS bridge
+- BBK + LBGR WFS point sampler with explicit scale/null semantics
+- conservation screening against LfU protected-area WFS feature families
+- GBIF positive-observation adapter returning coarse H3 aggregates rather than raw coordinates
+- DWD/VBB/source-health adapters and explicit degraded-feed states
+- species missions for Totentrompete, Parasol, Krause Glucke, Riesenbovist, Steinpilz, Marone, Trompetenpfifferling and Agaricus-group analysis
+- local-first field notebook and Recon Protocol
+- Supabase/PostGIS migration prepared for future opt-in authenticated sync; no hosted backend required
+- Wolfram validation track for model/geodesy/route experiments
+
+## Run locally
 
 ```bash
-PYTHONPATH=src/python python -m compact audit
-PYTHONPATH=src/python python -m compact badge
+nvm use
+npm install
+npm run check
+npm run typecheck
+npm run dev
 ```
 
-Development test flow will be formalized through `pyproject.toml` and repository tests.
+The branch CI also performs a production `next build`. Until the generated lockfile is committed, CI intentionally uses `npm install` with npm caching disabled. The lockfile artifact from the first successful run is then committed and CI switches to `npm ci`.
 
-<a id="stability"></a>
+## Map/data policy
 
-## Stability
+The default vector basemap is OpenFreeMap/MapLibre. Official Brandenburg services are kept in separate source adapters so map rendering, scientific evidence and legal/conservation interpretation never collapse into one layer.
 
-The Python core is currently the most stable and maintained part of the repository.
+Current official source families and freshness notes live in [DATA_SOURCES.md](./DATA_SOURCES.md). The v0.2 materialization plan is in [docs/data-engine.md](./docs/data-engine.md).
 
-_**Interfaces and structure may still evolve** while the project is being refined, especially in areas related to **packaging**, **language expansion**, and **repository governance**._
+## Privacy and safety
 
-<a id="architecture"></a>
+Exact personal field coordinates remain local by default. GBIF data exposed to the browser are aggregated to coarse H3 cells. Any future synced personal observations use authenticated ownership policies and Row Level Security.
 
-## Architecture
+The application never certifies edibility remotely. High-confusion groups remain `NOT CLEARED FOR CONSUMPTION` when decisive features are missing.
 
-See: [docs/architecture.md](./docs/architecture.md)
+Psychoactive taxa may be represented for taxonomy, ecology, phenology and coarse biodiversity research, but the project does not optimize precise collection locations, preparation, potency or use.
 
-<a id="governance"></a>
+## DWP internal field voice
 
-## Governance
-
-See: [docs/governance.md](./docs/governance.md)
-
-<a id="roadmap"></a>
-
-## Roadmap
-
-See: [docs/roadmap.md](./docs/roadmap.md)
-
-## Contributing
-
-See: [CONTRIBUTING.md](./CONTRIBUTING.md)
+Scientific evidence comes first. Mission labels such as **TRUMPET TOWN**, **Holy Mycelia**, or `Grumsin.write_permission .. DENIED BY CONSERVATION KERNEL` are explicitly DWP lore and never scientific sources.
