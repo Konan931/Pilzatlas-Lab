@@ -1,0 +1,3 @@
+export type MissionDisposition='HARVEST'|'RECON'|'PHOTO_ONLY'|'VERIFY'|'DO_NOT_ROUTE';
+export interface ConservationScreen { accessClosed:boolean; collectionProhibited:boolean|'unknown'; offPathSearchProhibited:boolean|'unknown'; protectedAreaHit:boolean; legalSourceChecked:boolean }
+export function missionGate(c:ConservationScreen, fruitingKnown:boolean, collecting:boolean):MissionDisposition { if(c.accessClosed)return'DO_NOT_ROUTE'; if(c.collectionProhibited===true||c.offPathSearchProhibited===true)return'PHOTO_ONLY'; if(c.protectedAreaHit&&!c.legalSourceChecked)return'VERIFY'; if(c.collectionProhibited==='unknown'||c.offPathSearchProhibited==='unknown')return'VERIFY'; if(!fruitingKnown)return'RECON'; return collecting?'HARVEST':'RECON'; }

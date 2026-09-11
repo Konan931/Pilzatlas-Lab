@@ -1,0 +1,2 @@
+export interface ReconObservation { schemaVersion:1; targetTaxon:string; observedAt:string; canopy:Record<string,number|undefined>; litterMoisture:'dry'|'damp'|'wet'|'unknown'; terrain:'flat'|'slope'|'depression'|'ridge'|'unknown'; targetDetected:boolean; associatedTaxa:string[]; privacy:{exactCoordinates:'private';publicExport:'coarse-h3'} }
+export function nonDetectionPenalty(taxon:string){const t=taxon.toLowerCase();if(t.includes('craterellus cornucopioides'))return .08;if(t.includes('calvatia gigantea'))return .30;return .18;}
