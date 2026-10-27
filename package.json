@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "check": "node scripts/check.mjs",
+    "check": "node scripts/check.mjs && node --test scripts/workflows.test.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
