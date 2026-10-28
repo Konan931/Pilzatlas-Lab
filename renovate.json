@@ -1,0 +1,53 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "enabledManagers": [
+    "github-actions",
+    "nvm"
+  ],
+  "includePaths": [
+    ".github/workflows/ci.yml",
+    ".nvmrc"
+  ],
+  "timezone": "Europe/Berlin",
+  "schedule": [
+    "* 6-9 * * 1"
+  ],
+  "dependencyDashboard": true,
+  "dependencyDashboardApproval": true,
+  "automerge": false,
+  "platformAutomerge": false,
+  "prConcurrentLimit": 2,
+  "branchConcurrentLimit": 2,
+  "prHourlyLimit": 1,
+  "vulnerabilityAlerts": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "description": "Keep the application runtime on Node.js 22.",
+      "matchManagers": [
+        "nvm"
+      ],
+      "matchPackageNames": [
+        "node"
+      ],
+      "allowedVersions": ">=22 <23"
+    },
+    {
+      "description": "Review application CI action updates together.",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchPackageNames": [
+        "actions/checkout",
+        "actions/setup-node"
+      ],
+      "groupName": "application-ci-actions",
+      "groupSlug": "application-ci-actions",
+      "separateMajorMinor": true
+    }
+  ]
+}
