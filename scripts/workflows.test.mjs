@@ -40,5 +40,5 @@ test('Pilzatlas CI retains its triggers and required verification steps', () => 
 test('workflow regression tests remain wired into the existing check gate', () => {
   const { scripts } = JSON.parse(read('package.json'));
   assert.equal(scripts.check,
-    'node scripts/check.mjs && node --test scripts/workflows.test.mjs');
+    'node scripts/check.mjs && node --test scripts/workflows.test.mjs scripts/playground.test.mjs');
 });
