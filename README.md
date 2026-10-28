@@ -61,3 +61,12 @@ Psychoactive taxa may be represented for taxonomy, ecology, phenology and coarse
 ## DWP internal field voice
 
 Scientific evidence comes first. Mission labels such as **TRUMPET TOWN**, **Holy Mycelia**, or `Grumsin.write_permission .. DENIED BY CONSERVATION KERNEL` are explicitly DWP lore and never scientific sources.
+
+## Browser playground
+
+A small buildless field sandbox is available in [`public/playground`](public/playground/).
+Open `/playground/index.html` with the app running, or use the
+[private hosted playground](https://pilzatlas-field-playground.digital-welf-8377.chatgpt.site).
+It includes synthetic H3 test cells, optional BBK WMS, local field notes and GeoJSON export.
+See [scope, validation and limitations](docs/browser-playground.md) and the
+[dependency review](docs/dependency-review-2026-10-28.md).
